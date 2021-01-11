@@ -22,7 +22,7 @@ npm run lint
 
 ### Path
 ```
-http://localhost:7000
+http://localhost:8080
 ```
 Please run the command below in windows to test for same domain for FE and BE
 ```
