@@ -20,5 +20,7 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Path
+http://localhost:7000
+Please run the command below in windows to test for same domain for FE and BE
+chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
