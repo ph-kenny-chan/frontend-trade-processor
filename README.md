@@ -21,6 +21,10 @@ npm run lint
 ```
 
 ### Path
+```
 http://localhost:7000
+```
 Please run the command below in windows to test for same domain for FE and BE
+```
 chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
+```
