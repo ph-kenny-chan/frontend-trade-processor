@@ -1,10 +1,21 @@
 <template>
 
-    <b-container fluid class="latest-transaction">
       <b-card bg-variant="light" header="Transaction Summary" class="text-center">
-        Coming Soon!
+        <b-table-simple responsive borderless>
+          <b-thead>
+            <b-tr>
+              <b-th sticky-column>Total Transaction</b-th>
+              <b-th sticky-column>Country of Origin</b-th>
+            </b-tr>
+          </b-thead>
+          <b-tbody>
+            <b-tr>
+              <b-td><h5>{{data.totalTransaction}}</h5></b-td>
+              <b-td>{{data.originDistribution}}</b-td>
+            </b-tr>
+          </b-tbody>
+        </b-table-simple>
       </b-card>
-    </b-container>
   
   
 </template>
@@ -18,52 +29,18 @@ export default {
   name: 'TransactionTable',
   data () {
     return {
-      fields: [
-          {
-            key: 'userId',
-            label: 'User ID'
-          },
-          {
-            key: 'currencyFrom',
-            label: 'Currency From'
-          },
-          {
-            key: 'currencyTo',
-            label: 'Currency To'
-          },
-          {
-            key: 'amountSell',
-            label: 'Amount Sell'
-          },
-          {
-            key: 'amountBuy',
-            label: 'Amount Buy'
-          },
-          {
-            key: 'rate',
-            label: 'Rate'
-          },
-          {
-            key: 'timePlaced',
-            label: 'Transaction Time',
-            formatter: (value, key, item) => {
-              return moment(value).format('YYYY-MM-DD HH:mm:ss ZZ');;
-            }
-          },
-          {
-            key: 'originatingCountry',
-            label: 'Origin Country'
-          }
-        ],
-      data:null
+      data:[]
     }
   },
   mounted () {
       axios
-        .get('http://localhost:7000/v1/demo/getTx')
-        .then(response => (
-          this.data = response.data.data
-          ))
+        .get('http://localhost:7000/v1/demo/getSummary')
+        .then(response => {
+          this.data = response.data.data;
+          this.data.originDistribution=
+          this.data.originDistribution.substring(1,this.data.originDistribution.length-1);
+
+      })
   }
   
 }

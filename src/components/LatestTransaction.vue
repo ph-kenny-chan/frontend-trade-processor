@@ -1,10 +1,38 @@
 <template>
 
-    <b-container fluid class="latest-transaction">
       <b-card bg-variant="light" header="Latest Transaction" class="text-center">
-        Coming Soon!
+          <table width="100%">
+            <tr>
+              <td>User ID</td>
+              <td>{{data.userId}}</td>
+            </tr>
+            <tr>
+              <td>Currency From</td>
+              <td>{{data.currencyFrom}}</td>
+            </tr>
+            <tr>
+              <td>Currency To</td>
+              <td>{{data.currencyTo}}</td>
+            </tr>
+            <tr>
+              <td>Amount Sell</td>
+              <td>{{data.amountSell}}</td>
+            </tr>
+            <tr>
+              <td>Amount Buy</td>
+              <td>{{data.amountBuy}}</td>
+            </tr>
+            <tr>
+              <td>Rate</td>
+              <td>{{data.rate}}</td>
+            </tr>
+            <tr>
+              <td>Transaction Time</td>
+              <td>{{data.timePlaced}}</td>
+            </tr>
+          </table>
+
       </b-card>
-    </b-container>
   
   
 </template>
@@ -15,67 +43,19 @@ import axios from "axios";
 import moment from 'moment';
 
 export default {
-  name: 'TransactionTable',
   data () {
     return {
-      fields: [
-          {
-            key: 'userId',
-            label: 'User ID'
-          },
-          {
-            key: 'currencyFrom',
-            label: 'Currency From'
-          },
-          {
-            key: 'currencyTo',
-            label: 'Currency To'
-          },
-          {
-            key: 'amountSell',
-            label: 'Amount Sell'
-          },
-          {
-            key: 'amountBuy',
-            label: 'Amount Buy'
-          },
-          {
-            key: 'rate',
-            label: 'Rate'
-          },
-          {
-            key: 'timePlaced',
-            label: 'Transaction Time',
-            formatter: (value, key, item) => {
-              return moment(value).format('YYYY-MM-DD HH:mm:ss ZZ');;
-            }
-          },
-          {
-            key: 'originatingCountry',
-            label: 'Origin Country'
-          }
-        ],
-      data:null
+      data:[]
     }
   },
   mounted () {
       axios
-        .get('http://localhost:7000/v1/demo/getTx')
-        .then(response => (
-          this.data = response.data.data
-          ))
-  },
-  methods: {
-    filterTable(row) {
-      if (row.txId === data.length-1) {
-        return false;
-      } else {
-        return true;
-      }
-    }
+        .get('http://localhost:7000/v1/demo/getLatestTx')
+        .then(response => {
+          this.data = response.data.data;
+          this.data.timePlaced = moment(this.data.timePlaced).format('YYYY-MM-DD HH:mm:ss ZZ')
+        })
   }
-
-  
 }
 </script>
 

@@ -1,11 +1,12 @@
 <template>
     <b-container fluid="xl" class="dashboard">
-      <b-row>
+      <b-row style="margin-top: 15px;margin-bottom: 15px">
           <b-col><TransactionSummary /></b-col>
-      </b-row>
-      <b-row>
-          <b-col><TransactionTable /></b-col>
           <b-col><LatestTransaction /></b-col>
+      </b-row>
+      <b-row style="margin-bottom: 15px">
+          <b-col><TransactionTable /></b-col>
+          
       </b-row>
     </b-container>
 </template>

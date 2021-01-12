@@ -1,6 +1,5 @@
 <template>
 
-    <b-container fluid class="container">
       <b-card bg-variant="light" header="Currency Market Transaction" class="text-center">
       <b-table id="tx-table" striped hover :items="data" :fields="fields" :per-page="perPage" :current-page="currentPage"
                              :sort-by.sync="sortBy" :sort-desc.sync="sortDesc" responsive="sm">
@@ -9,7 +8,6 @@
           v-model="currentPage" :total-rows="rows" :per-page="perPage" aria-controls="tx-table"
         ></b-pagination>
       </b-card>
-    </b-container>
   
   
 </template>
@@ -64,7 +62,7 @@ export default {
             sortable: true,
             sortByFormatted: true,
             formatter: (value, key, item) => {
-              return moment(value).format('YYYY-MM-DD HH:mm:ss ZZ');;
+              return moment(value).format('YYYY-MM-DD HH:mm:ss ZZ');
             }
           },
           {
