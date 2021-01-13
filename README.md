@@ -1,4 +1,5 @@
-# frontend-trade-processor
+# Market Trade Processor in frontend
+This frontend project includes a dashboard displaying the latest transaction, all transaction in table and a summary for the transactions.
 
 ## Project setup
 ```
@@ -24,7 +25,7 @@ npm run lint
 ```
 http://localhost:8080
 ```
-Please run the command below in windows to test for same domain for FE and BE
+#### Please run the command below in windows to test for same domain for FE and BE
 ```
 chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
 ```
