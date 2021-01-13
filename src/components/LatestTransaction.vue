@@ -2,33 +2,29 @@
 
       <b-card bg-variant="light" header="Latest Transaction" class="text-center">
           <table width="100%">
-            <tr>
+            <tr class="left">
               <td>User ID</td>
               <td>{{data.userId}}</td>
             </tr>
-            <tr>
-              <td>Currency From</td>
-              <td>{{data.currencyFrom}}</td>
-            </tr>
-            <tr>
-              <td>Currency To</td>
-              <td>{{data.currencyTo}}</td>
-            </tr>
-            <tr>
+            <tr class="left">
               <td>Amount Sell</td>
-              <td>{{data.amountSell}}</td>
+              <td>{{data.currencyFrom}}&nbsp;{{data.amountSell}}</td>
             </tr>
-            <tr>
+            <tr class="left">
               <td>Amount Buy</td>
-              <td>{{data.amountBuy}}</td>
+              <td>{{data.currencyTo}}&nbsp;{{data.amountBuy}}</td>
             </tr>
-            <tr>
-              <td>Rate</td>
+            <tr class="left">
+              <td>{{data.currencyFrom}} / {{data.currencyTo}}</td>
               <td>{{data.rate}}</td>
             </tr>
-            <tr>
+            <tr class="left">
               <td>Transaction Time</td>
               <td>{{data.timePlaced}}</td>
+            </tr>
+            <tr class="left">
+              <td>Origin Country</td>
+              <td>{{data.originatingCountry}}</td>
             </tr>
           </table>
 
@@ -75,4 +71,9 @@ li {
 a {
   color: #42b983;
 }
+
+.left{
+  text-align: left;
+}
+
 </style>

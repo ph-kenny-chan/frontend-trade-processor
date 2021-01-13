@@ -4,7 +4,7 @@
         <b-table-simple responsive borderless>
           <b-thead>
             <b-tr>
-              <b-th sticky-column>Total Transaction</b-th>
+              <b-th sticky-column>Total Transaction(s)</b-th>
               <b-th sticky-column>Country of Origin</b-th>
             </b-tr>
           </b-thead>
